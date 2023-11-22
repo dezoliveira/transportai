@@ -15,5 +15,5 @@ password.value = "12345678"
 
 btnLogin.addEventListener('click', (e) => {
     e.preventDefault()
-    location.href = '../pages/main.html'
+    location.href = './pages/main.html'
 })
