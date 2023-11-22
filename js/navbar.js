@@ -43,8 +43,6 @@ btnSearch.addEventListener('click', () => {
   
   let newStartDate = arr1[0] + '/' + arr1[1] + '/' + arr1[2]
   let newEndDate = arr2[0] + '/' + arr2[1] + '/' + arr2[2]
-  console.log(arr1)
-  console.log(arr2)
 
   datePeriod.textContent = `Período de ${newStartDate} á ${newEndDate}`
 })

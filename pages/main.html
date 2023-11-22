@@ -47,8 +47,8 @@
   </div>
   <div class="tab-content container-fluid" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel" aria-labelledby="pills-dashboard-tab">
-      <div class="container-fluid col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
-        <div class="row d-flex align-items-center justify-content-center p-4 mt-4">
+      <div class="container-fluid col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center flex-column">
+        <div class="row d-flex align-items-center justify-content-center mt-4">
           <div class="col-lg-6 col-sm-6">
               <label for="startDate">Data Inicial</label>
               <input id="startDate" class="form-control" type="date"/>
@@ -57,12 +57,16 @@
               <label for="endDate">Data Final</label>
               <input id="endDate" class="form-control" type="date">
           </div>
+        </div>
+        <div class="row">
           <div class="btn-group py-4">
             <button id="btnSearch" class="btn btn-primary">
               Pesquisar
             </button>
           </div>
-          <span id="datePeriod"></span>
+          <div>
+            <span id="datePeriod"></span>
+          </div>
         </div>
       </div>
     </div>
