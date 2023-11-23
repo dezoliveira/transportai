@@ -13,10 +13,6 @@
     color: #fff;
 }
 
-.nav-item{
-    color: red;
-}
-
 .nav-link {
     color: #fff;
 }
@@ -45,4 +41,21 @@
 
 .logo i {
     font-size: 28px;
+}
+
+#pills-users .nav-link {
+    color: #495057;
+}
+
+#pills-users .nav-link:hover {
+    color: blueviolet;
+}
+
+#pills-users .nav-link.active {
+    color: blueviolet;
+}
+
+.list-group-item.active {
+    background-color: blueviolet;
+    border-color: blueviolet;
 }

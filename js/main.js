@@ -4,6 +4,31 @@ const messages = document.querySelector('#messages')
 const settings = document.querySelector('#settings')
 const btnSearch = document.getElementById('btnSearch')
 const datePeriod = document.getElementById('datePeriod')
+const userList = document.getElementById('user-list')
+const userInput = document.getElementById('user-input')
+
+const users = [
+  {
+    id: 1,
+    name: 'Andres Oliveira',
+    role: 'Admin'
+  },
+  {
+    id: 2,
+    name: 'John Dee',
+    role: 'User'
+  }
+]
+
+userInput.addEventListener('input', (e) => {
+  let inputUser = e.target.value
+
+  if (inputUser.length) {
+    userList.style.display = 'block'
+  } else{
+    userList.style.display = 'none'
+  }
+})
 
 //datepicker
 let startDate = document.getElementById('startDate')

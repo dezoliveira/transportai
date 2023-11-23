@@ -26,7 +26,7 @@
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-cadastro-tab" data-bs-toggle="pill" data-bs-target="#pills-cadastro" type="button" role="tab" aria-controls="pills-cadastro" aria-selected="false">
+        <button class="nav-link" id="pills-cadastro-tab" data-bs-toggle="pill" data-bs-target="#pills-users" type="button" role="tab" aria-controls="pills-cadastro" aria-selected="false">
           Cadastros
           <i class="fa-regular fa-address-card"></i>
         </button>
@@ -45,8 +45,9 @@
       </li>
     </ul>
   </div>
-  <div class="tab-content container-fluid" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel" aria-labelledby="pills-dashboard-tab">
+  <div class="tab-content container-fluid p-4" id="pills-tabContent">
+    <div class="tab-pane fade show active p-4" id="pills-dashboard" role="tabpanel" aria-labelledby="pills-dashboard-tab">
+      <h2>Dashboard</h2>
       <div class="container-fluid col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center flex-column">
         <div class="row d-flex align-items-center justify-content-center mt-4">
           <div class="col-lg-6 col-sm-6">
@@ -70,8 +71,50 @@
         </div>
       </div>
     </div>
-    <div class="tab-pane fade" id="pills-cadastro" role="tabpanel" aria-labelledby="pills-cadastro-tab">
-      <h1>cadasto</h1>
+    <div class="tab-pane fade p-4" id="pills-users" role="tabpanel" aria-labelledby="pills-cadastro-tab">
+      <h2>Usuários</h2>
+      <div class="container-fluid col-lg-12 col-md-12 col-sm-12 mt-4">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="users-tab" data-bs-toggle="tab" data-bs-target="#user-list-container" type="button" role="tab" aria-controls="home" aria-selected="true">Usuários</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="users-register-tab" data-bs-toggle="tab" data-bs-target="#user-register-container" type="button" role="tab" aria-controls="profile" aria-selected="false">Cadastrar</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="users-edit-tab" data-bs-toggle="tab" data-bs-target="#user-edit-container" type="button" role="tab" aria-controls="contact" aria-selected="false">Editar</button>
+          </li>
+        </ul>
+        <div class="tab-content py-4" id="myTabContent">
+          <div class="tab-pane fade show active" id="user-list-container" role="tabpanel" aria-labelledby="users-register-tab">
+            <div class="col-lg-8 col-sm-8 col-sm-12">
+              <!-- <label style="position: absolute;">Pesquisar Usuários</label> -->
+              <div class="d-flex align-items-center gap-4 py-4">
+                <input type="text" id="user-input" placeholder="Digite o nome do usuário. Ex: John Dee" class="form-control"/>
+                <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2">
+                  <label class="d-none d-sm-block" id="user-search">
+                    Pesquisar
+                  </label>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+            </div>
+            <ul id="user-list" class="list-group" style="display: none;"> 
+              <li class="list-group-item active" aria-current="true">An active item</li>
+              <li class="list-group-item">A second item</li>
+              <li class="list-group-item">A third item</li>
+              <li class="list-group-item">A fourth item</li>
+              <li class="list-group-item">And a fifth one</li>
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="user-register-container" role="tabpanel" aria-labelledby="employ-tab">
+
+          </div>
+          <div class="tab-pane fade" id="user-edit-container" role="tabpanel" aria-labelledby="contract-tab">
+
+          </div>
+        </div>
+      </div>
     </div>
     <div class="tab-pane fade" id="pills-contract" role="tabpanel" aria-labelledby="pills-contract-tab">
       <h1>contrato</h1>
@@ -84,7 +127,6 @@
 
     <script src="../js/main.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js" integrity="sha512-7U4rRB8aGAHGVad3u2jiC7GA5/1YhQcQjxKeaVms/bT66i3LVBMRcBI9KwABNWnxOSwulkuSXxZLGuyfvo7V1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>
