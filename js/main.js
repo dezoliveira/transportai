@@ -20,6 +20,21 @@ const users = [
   }
 ]
 
+submitForm = (e) => {
+  e.preventDefault()
+  Swal.fire({
+    title: 'Deu tudo certo!',
+    text: 'Usuario Cadastro com sucesso!',
+    icon: 'success',
+    confirmButtonText: 'Ok'
+  })
+  return
+} 
+
+//datepicker
+let startDate = document.getElementById('startDate')
+let endDate = document.getElementById('endDate')
+
 userInput.addEventListener('input', (e) => {
   let inputUser = e.target.value
 
@@ -30,16 +45,9 @@ userInput.addEventListener('input', (e) => {
   }
 })
 
-//datepicker
-let startDate = document.getElementById('startDate')
-let endDate = document.getElementById('endDate')
-
 btnSearch.addEventListener('click', () => {
   let startDateVal = startDate.value
   let endDateVal = endDate.value
-
-  console.log(startDate.value)
-  console.log(endDate.value)
 
   if(!startDateVal.length) {
     // return alert('Digite a data Inicial')
