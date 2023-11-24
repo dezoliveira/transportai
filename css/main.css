@@ -32,6 +32,11 @@
     opacity: 0.7;
 }
 
+.badge .bg-primary {
+    background-color: blueviolet;
+    border-color: blueviolet;
+}
+
 .logo {
     display: flex;
     align-items: center;
