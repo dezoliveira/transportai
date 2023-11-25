@@ -1,15 +1,57 @@
+//Nav
 const home = document.querySelector('#home')
 const profile = document.querySelector('#profile')
 const messages = document.querySelector('#messages')
 const settings = document.querySelector('#settings')
-const btnSearch = document.getElementById('btnSearch')
+
+//Nav Tabs
+const tabUsers = document.getElementById('pills-users')
+const tabUsersList = document.getElementById('users-list-tab')
+const tabRegisterList = document.getElementById('users-register-tab')
+const tabEditList = document.getElementById('users-edit-tab')
+
+//User List
+
 const datePeriod = document.getElementById('datePeriod')
+
+//Search Inputs
+const btnSearch = document.getElementById('btnSearch')
 const userList = document.getElementById('user-list')
 const userInput = document.getElementById('user-input')
 const userEditList = document.getElementById('user-edit-list')
 const userEditInput = document.getElementById('user-edit-input')
 
-const tabUsers = document.getElementById('pills-users')
+//Form Inputs
+const registerName = document.getElementById('register-name')
+const registerMail = document.getElementById('register-mail')
+const registerPassword = document.getElementById('register-password')
+
+const arrContainers = [tabUsersList, tabRegisterList, tabEditList]
+
+arrContainers.forEach((element, i) => {
+  console.log(element)
+  console.log(i)
+  element.addEventListener('click', () => {
+    switch(i){
+      case 0:
+        userEditInput.value = ''
+        registerName.value = ''
+        registerMail.value = ''
+        registerPassword.value = ''
+        return
+      case 1:
+        userInput.value = ''
+        userEditInput.value = ''
+        return
+      case 2:
+        userInput.value = ''
+        registerName.value = ''
+        registerMail.value = ''
+        registerPassword.value = ''
+        return
+    }
+  })
+})
 
 tabUsers.addEventListener('click', () => {
   userList.style.display = 'none'
