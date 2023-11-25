@@ -6,6 +6,18 @@ const btnSearch = document.getElementById('btnSearch')
 const datePeriod = document.getElementById('datePeriod')
 const userList = document.getElementById('user-list')
 const userInput = document.getElementById('user-input')
+const userEditList = document.getElementById('user-edit-list')
+const userEditInput = document.getElementById('user-edit-input')
+
+const tabUsers = document.getElementById('pills-users')
+
+tabUsers.addEventListener('click', () => {
+  userList.style.display = 'none'
+  userInput.innerText = ''
+
+  userEditList.style.display = 'none'
+  userEditInput.innerText = ''
+})
 
 const users = [
   {
@@ -42,6 +54,16 @@ userInput.addEventListener('input', (e) => {
     userList.style.display = 'block'
   } else{
     userList.style.display = 'none'
+  }
+})
+
+userEditInput.addEventListener('input', (e) => {
+  let inputUser = e.target.value
+
+  if (inputUser.length) {
+    userEditList.style.display = 'block'
+  } else{
+    userEditList.style.display = 'none'
   }
 })
 
