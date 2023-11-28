@@ -1,11 +1,10 @@
 //Nav
-const home = document.querySelector('#home')
-const profile = document.querySelector('#profile')
-const messages = document.querySelector('#messages')
-const settings = document.querySelector('#settings')
+const tabDashboard = document.getElementById('dashboard-tab')
+const tabRegister = document.getElementById('register-tab')
+const tabContracts = document.getElementById('contract-tab')
+const tabHistory = document.getElementById('history-tab')
 
-//Nav Tabs
-const tabUsers = document.getElementById('pills-users')
+//Nav Users Tabs
 const tabUsersList = document.getElementById('users-list-tab')
 const tabRegisterList = document.getElementById('users-register-tab')
 const tabEditList = document.getElementById('users-edit-tab')
@@ -27,6 +26,17 @@ const registerMail = document.getElementById('register-mail')
 const registerPassword = document.getElementById('register-password')
 
 const arrContainers = [tabUsersList, tabRegisterList, tabEditList]
+
+loadPage = (e) => {
+  let page = e.id.replace('-tab','')
+  let target = 'pills-' + page
+
+  console.log(page)
+  console.log(target)
+
+  let element = document.getElementById(target)
+  element.innerHTML = `<object type="text/html" data="../pages/${page}.html">`
+}
 
 arrContainers.forEach((element, i) => {
   console.log(element)
@@ -51,14 +61,6 @@ arrContainers.forEach((element, i) => {
         return
     }
   })
-})
-
-tabUsers.addEventListener('click', () => {
-  userList.style.display = 'none'
-  userInput.innerText = ''
-
-  userEditList.style.display = 'none'
-  userEditInput.innerText = ''
 })
 
 const users = [
