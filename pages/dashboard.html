@@ -3,9 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="../css/main.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <h1>Dashboard</h1>
+    <div>
+        <span class="badge bg-primary">
+            <h4 class="m-0">Dashboard</h4>
+        </span>
+        <div class="container-fluid col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center flex-column">
+            <div class="row d-flex align-items-center justify-content-center mt-4">
+                <div class="col-lg-6 col-sm-6">
+                    <label for="startDate">Data Inicial</label>
+                    <input id="startDate" class="form-control" type="date"/>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <label for="endDate">Data Final</label>
+                    <input id="endDate" class="form-control" type="date">
+                </div>
+            </div>
+            <div class="row">
+                <div class="btn-group py-4">
+                <button id="btnSearch" class="btn btn-primary">
+                    Pesquisar
+                </button>
+                </div>
+                <div class="text-center">
+                <span id="datePeriod"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/main.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

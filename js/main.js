@@ -35,7 +35,7 @@ loadPage = (e) => {
   console.log(target)
 
   let element = document.getElementById(target)
-  element.innerHTML = `<object type="text/html" data="../pages/${page}.html">`
+  element.innerHTML = `<object type="text/html" class="container-fluid" data="../pages/${page}.html">`
 }
 
 arrContainers.forEach((element, i) => {

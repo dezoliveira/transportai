@@ -64,3 +64,8 @@
     background-color: blueviolet;
     border-color: blueviolet;
 }
+
+object {
+    width: 100vh;
+    height: 100vh;
+}
