@@ -21,12 +21,21 @@
     color: blueviolet;
 }
 
+#pills-tab .nav-link.active {
+    background-color: blueviolet;
+    border-color: blueviolet;
+}
+
+#pills-tab .nav-link.active:hover {
+    color: #fff;
+}
+
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link, .btn.btn-primary {
     background-color: blueviolet;
     border-color: transparent;
 }
 
-.btn.btn-primary:hover {
+#pills-tab .btn.btn-primary:hover {
     background-color: blueviolet;
     border-color: blueviolet;
     opacity: 0.7;
