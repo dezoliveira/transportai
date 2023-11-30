@@ -20,22 +20,23 @@ const userInput = document.getElementById('user-input')
 const userEditList = document.getElementById('user-edit-list')
 const userEditInput = document.getElementById('user-edit-input')
 
-//Form Inputs
+//Form Register Inputs
 const registerName = document.getElementById('register-name')
 const registerMail = document.getElementById('register-mail')
 const registerPassword = document.getElementById('register-password')
 
 const arrContainers = [tabUsersList, tabRegisterList, tabEditList]
 
-loadPage = (e) => {
+loadPage = async (e) => {
   let page = e.id.replace('-tab','')
   let target = 'pills-' + page
 
-  console.log(page)
-  console.log(target)
+  // let element = document.getElementById(target)
+  // element.innerHTML = `<object type="text/html" class="container-fluid" data="../pages/${page}.html">`
+  // e.preventDefault()
 
   let element = document.getElementById(target)
-  element.innerHTML = `<object type="text/html" class="container-fluid" data="../pages/${page}.html">`
+  element.innerHTML = await (await fetch(`./${page}.html`)).text();
 }
 
 arrContainers.forEach((element, i) => {
@@ -75,17 +76,6 @@ const users = [
     role: 'User'
   }
 ]
-
-submitForm = (e) => {
-  e.preventDefault()
-  Swal.fire({
-    title: 'Deu tudo certo!',
-    text: 'Usuario Cadastro com sucesso!',
-    icon: 'success',
-    confirmButtonText: 'Ok'
-  })
-  return
-} 
 
 //datepicker
 let startDate = document.getElementById('startDate')

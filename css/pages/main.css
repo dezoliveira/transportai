@@ -13,11 +13,11 @@
     color: #fff;
 }
 
-.nav-link {
+#pills-tab .nav-link {
     color: #fff;
 }
 
-.nav-link:hover {
+#pills-tab .nav-link:hover {
     color: blueviolet;
 }
 
@@ -60,12 +60,18 @@
     color: blueviolet;
 }
 
-.list-group-item.active {
+#pills-users .list-group-item.active {
     background-color: blueviolet;
     border-color: blueviolet;
 }
 
+#pill-users li.nav-item {
+    background-color: blueviolet;
+    border-color: blueviolet;
+}
+
+/* Use with object html
 object {
     width: 100vh;
     height: 100vh;
-}
+} */
