@@ -119,11 +119,11 @@
                 </button>
               </div>
               <ul id="user-list" class="list-group" style="display: none;"> 
-                <li class="list-group-item active" aria-current="true">An active item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-                <li class="list-group-item">A fourth item</li>
-                <li class="list-group-item">And a fifth one</li>
+                <div class="d-flex align-items-center justify-content-between">
+                  <label>Name</label>
+                  <label>Email</label>
+                  <label>Role</label>
+                </div>
               </ul>
             </div>
           </div>
@@ -172,7 +172,26 @@
         </div>
         <!-- Register Container -->
 
-        <!-- Contract Container -->
+        <!-- Edit Container -->
+        <!-- Modal -->
+        <div id="exampleModalCenter" class="modal fade" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Editar Usuário</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Salvar Alterações</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <div id="user-edit-container" class="container-fluid tab-pane fade" role="tabpanel" aria-labelledby="users-edit-tab">
           <div class="container-fluid col-lg-12 col-sm-12 col-md-12 d-flex justify-content-center">
             <div class="col-lg-8 col-sm-8 col-sm-12">
@@ -187,51 +206,12 @@
                 </button>
               </div>
               <ul id="user-edit-list" class="list-group" style="display: none;"> 
-                <li class="list-group-item active" aria-current="true">
-                  <div class="d-flex justify-content-between">
-                    <label>An active item</label>
-                    <span class="d-flex align-items-center justify-content-center gap-2">
-                      <i class="fa-solid fa-pen-to-square"></i>
-                      <i class="fa-solid fa-trash"></i>
-                    </span>
-                  </div>
-                </li>
-                <li class="list-group-item">
-                  <div class="d-flex justify-content-between">
-                    <label>A Second item</label>
-                    <span class="d-flex align-items-center justify-content-center gap-2">
-                      <i class="fa-solid fa-pen-to-square"></i>
-                      <i class="fa-solid fa-trash"></i>
-                    </span>
-                  </div>
-                </li>
-                <li class="list-group-item">
-                  <div class="d-flex justify-content-between">
-                    <label>A second item</label>
-                    <span class="d-flex align-items-center justify-content-center gap-2">
-                      <i class="fa-solid fa-pen-to-square"></i>
-                      <i class="fa-solid fa-trash"></i>
-                    </span>
-                  </div>
-                </li>
-                <li class="list-group-item">
-                  <div class="d-flex justify-content-between">
-                    <label>A third item</label>
-                    <span class="d-flex align-items-center justify-content-center gap-2">
-                      <i class="fa-solid fa-pen-to-square"></i>
-                      <i class="fa-solid fa-trash"></i>
-                    </span>
-                  </div>
-                </li>
-                <li class="list-group-item">
-                  <div class="d-flex justify-content-between">
-                    <label>And a fifth one</label>
-                    <span class="d-flex align-items-center justify-content-center gap-2">
-                      <i class="fa-solid fa-pen-to-square"></i>
-                      <i class="fa-solid fa-trash"></i>
-                    </span>
-                  </div>
-                </li>
+                <div class="d-flex align-items-center justify-content-between">
+                  <label>Name</label>
+                  <label>Email</label>
+                  <label>Role</label>
+                  <label>Actions</label>
+                </div>
               </ul>
             </div>
           </div>

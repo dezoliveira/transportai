@@ -11,7 +11,6 @@ const tabRegisterList = document.getElementById('users-register-tab')
 const tabEditList = document.getElementById('users-edit-tab')
 
 //User List
-
 const datePeriod = document.getElementById('datePeriod')
 
 //Search Inputs
@@ -26,11 +25,88 @@ const registerName = document.getElementById('register-name')
 const registerMail = document.getElementById('register-mail')
 const registerPassword = document.getElementById('register-password')
 
+const btnEdit = document.getElementById('btn-edit')
+
+//on load
+window.onload = () => {
+  //create userList
+  for (i in users) {
+    let id = users[i].id
+    let userName = users[i].name
+    let email = users[i].email
+    let role = users[i].role
+
+    //user list
+    userList.innerHTML += `
+      <li id="${id}" class="list-group-item">
+        <div class="d-flex justify-content-between">
+          <label>${userName}</label>
+          <span>${email}</span>
+          <span>${role}</span>
+        </div>
+      </li>
+    `
+
+    //edit list
+    userEditList.innerHTML += `
+      <li 
+        id="${id}" 
+        class="list-group-item"
+        aria-current="true"
+      >
+        <div class="d-flex justify-content-between">
+          <label>${userName}</label>
+          <span>${email}</span>
+          <span>${role}</span>
+          <span class="d-flex align-items-center justify-content-center gap-2">
+            <i onclick="editForm(${id})" class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"></i>
+            <i class="fa-solid fa-trash"></i>
+          </span>
+        </div>
+      </li>
+    `
+  }
+}
+
+const editForm = (id) => {
+  let user = users.filter((user) => user.id === id )
+  let editModal = document.querySelector('#exampleModalCenter .modal-body')
+
+  editModal.innerHTML = `
+    <form onsubmit="submitForm(event)" class="d-flex flex-column gap-4 p-4">
+      <div>
+        <label for="form-login">Nome do usuário</label>
+        <input id="edit-username" class="form-control" value="${user[0].name}" />
+      </div>
+      <div>
+        <label for="form-login">Email</label>
+        <input id="edit-user-mail" class="form-control" value="${user[0].email}"/>
+      </div>
+      <div>
+        <label for="form-login">Senha antiga</label>
+        <span class="d-flex align-items-center gap-2 hidden-wrapper" style="position: relative;">
+          <input id="register-password" type="password" class="form-control"/>
+          <span class="hidden-icon" style="position: absolute; right: 10px;">
+            <i class="fa fa-eye" id="togglePassword"></i>
+          </span>
+        </span>
+      </div>
+      <div>
+        <label for="form-login">Nova senha</label>
+        <span class="d-flex align-items-center gap-2 hidden-wrapper" style="position: relative;">
+          <input id="register-password" type="password" class="form-control"/>
+          <span class="hidden-icon" style="position: absolute; right: 10px;">
+            <i class="fa fa-eye" id="togglePassword"></i>
+          </span>
+        </span>
+      </div>
+    </form>
+  `
+}
+
 const arrContainers = [tabUsersList, tabRegisterList, tabEditList]
 
 arrContainers.forEach((element, i) => {
-  console.log(element)
-  console.log(i)
   element.addEventListener('click', () => {
     switch(i){
       case 0:
@@ -53,24 +129,32 @@ arrContainers.forEach((element, i) => {
   })
 })
 
-tabUsers.addEventListener('click', () => {
-  userList.style.display = 'none'
-  userInput.innerText = ''
+// tabUsers.addEventListener('click', () => {
+//   userList.style.display = 'none'
+//   userInput.innerText = ''
 
-  userEditList.style.display = 'none'
-  userEditInput.innerText = ''
+//   userEditList.style.display = 'none'
+//   userEditInput.innerText = ''
+// })
+
+document.addEventListener('click', (e) => {
+  
 })
 
 const users = [
   {
     id: 1,
     name: 'Andres Oliveira',
-    role: 'Admin'
+    role: 'Admin',
+    password: '123456',
+    email: 'admin@gmail.com',
   },
   {
     id: 2,
     name: 'John Dee',
-    role: 'User'
+    role: 'User',
+    password: '123456',
+    email: 'jd@gmail.com',
   }
 ]
 
@@ -91,7 +175,7 @@ let endDate = document.getElementById('endDate')
 
 userInput.addEventListener('input', (e) => {
   let inputUser = e.target.value
-
+  console.log(inputUser.length)
   if (inputUser.length) {
     userList.style.display = 'block'
   } else{
