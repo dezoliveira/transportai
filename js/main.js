@@ -38,32 +38,28 @@ window.onload = () => {
 
     //user list
     userList.innerHTML += `
-      <li id="${id}" class="list-group-item">
-        <div class="d-flex justify-content-between">
-          <label>${userName}</label>
-          <span>${email}</span>
-          <span>${role}</span>
-        </div>
-      </li>
+    <tbody>
+      <tr id="${id}">
+        <td>${userName}</td>
+        <td>${email}</td>
+        <td>${role}</td>
+      </tr>
+    </tbody>
     `
 
     //edit list
     userEditList.innerHTML += `
-      <li 
-        id="${id}" 
-        class="list-group-item"
-        aria-current="true"
-      >
-        <div class="d-flex justify-content-between">
-          <label>${userName}</label>
-          <span>${email}</span>
-          <span>${role}</span>
-          <span class="d-flex align-items-center justify-content-center gap-2">
+      <tbody>
+        <tr id="${id}">
+          <td>${userName}</td>
+          <td>${email}</td>
+          <td>${role}</td>
+          <td class="text-center">
             <i onclick="editForm(${id})" class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"></i>
             <i class="fa-solid fa-trash"></i>
-          </span>
-        </div>
-      </li>
+          </td>
+        </tr>
+      </tbody>
     `
   }
 }

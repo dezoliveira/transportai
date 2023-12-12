@@ -64,3 +64,11 @@
     background-color: blueviolet;
     border-color: blueviolet;
 }
+
+table, tbody, td, tr, th, thead {
+    width: 100%;
+}
+
+th {
+    color: blueviolet;
+}
