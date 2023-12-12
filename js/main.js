@@ -56,7 +56,7 @@ window.onload = () => {
           <td>${role}</td>
           <td class="text-center">
             <i onclick="editForm(${id})" class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"></i>
-            <i class="fa-solid fa-trash"></i>
+            <i onclick="deleteForm()" class="fa-solid fa-trash" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"></i>
           </td>
         </tr>
       </tbody>
@@ -66,38 +66,76 @@ window.onload = () => {
 
 const editForm = (id) => {
   let user = users.filter((user) => user.id === id )
-  let editModal = document.querySelector('#exampleModalCenter .modal-body')
+  let editModal = document.querySelector('#exampleModalCenter .modal-content')
 
   editModal.innerHTML = `
-    <form onsubmit="submitForm(event)" class="d-flex flex-column gap-4 p-4">
-      <div>
-        <label for="form-login">Nome do usuário</label>
-        <input id="edit-username" class="form-control" value="${user[0].name}" />
-      </div>
-      <div>
-        <label for="form-login">Email</label>
-        <input id="edit-user-mail" class="form-control" value="${user[0].email}"/>
-      </div>
-      <div>
-        <label for="form-login">Senha antiga</label>
-        <span class="d-flex align-items-center gap-2 hidden-wrapper" style="position: relative;">
-          <input id="register-password" type="password" class="form-control"/>
-          <span class="hidden-icon" style="position: absolute; right: 10px;">
-            <i class="fa fa-eye" id="togglePassword"></i>
-          </span>
-        </span>
-      </div>
-      <div>
-        <label for="form-login">Nova senha</label>
-        <span class="d-flex align-items-center gap-2 hidden-wrapper" style="position: relative;">
-          <input id="register-password" type="password" class="form-control"/>
-          <span class="hidden-icon" style="position: absolute; right: 10px;">
-            <i class="fa fa-eye" id="togglePassword"></i>
-          </span>
-        </span>
-      </div>
-    </form>
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Usuário</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form onsubmit="submitForm(event)" class="d-flex flex-column gap-4 p-4">
+            <div>
+              <label for="form-login">Nome do usuário</label>
+              <input id="edit-username" class="form-control" value="${user[0].name}" />
+            </div>
+            <div>
+              <label for="form-login">Email</label>
+              <input id="edit-user-mail" class="form-control" value="${user[0].email}"/>
+            </div>
+            <div>
+              <label for="form-login">Senha antiga</label>
+              <span class="d-flex align-items-center gap-2 hidden-wrapper" style="position: relative;">
+                <input id="register-password" type="password" class="form-control"/>
+                <span class="hidden-icon" style="position: absolute; right: 10px;">
+                  <i class="fa fa-eye" id="togglePassword"></i>
+                </span>
+              </span>
+            </div>
+            <div>
+              <label for="form-login">Nova senha</label>
+              <span class="d-flex align-items-center gap-2 hidden-wrapper" style="position: relative;">
+                <input id="register-password" type="password" class="form-control"/>
+                <span class="hidden-icon" style="position: absolute; right: 10px;">
+                  <i class="fa fa-eye" id="togglePassword"></i>
+                </span>
+              </span>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Salvar Alterações</button>
+        </div>
   `
+}
+
+const deleteForm = () => {
+  let deleteModal = document.querySelector('#exampleModalCenter .modal-content')
+  deleteModal.innerHTML = `
+    <div class="modal-header">
+      <h5 class="modal-title">Deletar Usuário</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <p>Tem certeza que deseja deletar o usuário ?</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      <button onclick="deleteUser()" type="button" class="btn btn-primary">Deletar Usuário</button>
+    </div>
+  `
+}
+
+const deleteUser = () => {
+  Swal.fire({
+    title: 'Deu tudo certo',
+    text: 'Usuário deletado com sucesso!',
+    icon: 'success',
+    confirmButtonText: 'Ok'
+  })
+  
+  return
 }
 
 const arrContainers = [tabUsersList, tabRegisterList, tabEditList]
@@ -161,6 +199,10 @@ submitForm = (e) => {
     text: 'Usuario Cadastro com sucesso!',
     icon: 'success',
     confirmButtonText: 'Ok'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      document.querySelector('#exampleModalCenter .modal-content').innerHTML = ''
+    }
   })
   return
 } 
