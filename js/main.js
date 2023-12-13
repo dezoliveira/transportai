@@ -120,8 +120,8 @@ window.onload = () => {
           <td>Iniado em: ${date}</td>
           <td>${price}</td>
           <td class="text-center">
-            <i onclick="editForm(${id})" class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"></i>
-            <i onclick="deleteForm()" class="fa-solid fa-trash" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"></i>
+            <i onclick="editContractForm(${id})" class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#contractModal"></i>
+            <i onclick="deleteContractForm()" class="fa-solid fa-trash" data-bs-toggle="modal" data-bs-target="#contractModal"></i>
           </td>
         </tr>
       </tbody>
@@ -201,6 +201,71 @@ const deleteUser = () => {
   })
   
   return
+}
+
+const deleteContract = () => {
+  Swal.fire({
+    title: 'Deu tudo certo',
+    text: 'Contrato deletado com sucesso!',
+    icon: 'success',
+    confirmButtonText: 'Ok'
+  })
+  
+  return
+}
+
+const editContractForm = (id) => {
+  let contract = contracts.filter((contract) => contract.id === id )
+  let editModal = document.querySelector('#contractModal .modal-content')
+
+  editModal.innerHTML = `
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Contrato</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form onsubmit="submitForm(event)" class="d-flex flex-column gap-4 p-4">
+            <div>
+              <label for="form-login">Nome do Contrato</label>
+              <input id="contract-name" class="form-control" value="${contract[0].name}" />
+            </div>
+            <div>
+              <div>
+                <label for="contractDate">Data do Contrato</label>
+                <input id="contractDate" class="form-control" type="date" value="${contract[0].date}"/>
+              </div>
+            </div>
+            <div>
+              <label for="form-login">Valor do Contrato</label>
+              <input id="contract-price" class="form-control" placeholder="Ex: 450,00" value="${contract[0].price}" />
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-primary">Cadastrar</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Salvar Alterações</button>
+        </div>
+  `
+}
+
+const deleteContractForm = () => {
+  let deleteModal = document.querySelector('#contractModal .modal-content')
+  deleteModal.innerHTML = `
+    <div class="modal-header">
+      <h5 class="modal-title">Deletar Contrato</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <p>Tem certeza que deseja deletar o contrato ?</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      <button onclick="deleteContract()" type="button" class="btn btn-primary">Deletar Contrato</button>
+    </div>
+  `
 }
 
 const arrContainers = [tabUsersList, tabRegisterList, tabEditList]
