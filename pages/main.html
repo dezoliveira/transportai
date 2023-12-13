@@ -74,13 +74,14 @@
       </div>
     </div>
     
-    <!-- Users Pills Tab -->
-    <div class="tab-pane fade p-4" id="pills-users" role="tabpanel" aria-labelledby="pills-cadastro-tab">
+    <!-- Users Tab -->
+    <div class="tab-pane fade p-4" id="pills-users" role="tabpanel" aria-labelledby="pills-users-tab">
       <span class="badge bg-primary">
         <h4 class="m-0">
           Usuarios    
         </h4> 
       </span>
+      <!-- Users Pills Tab -->
       <div class="container-fluid col-lg-12 col-md-12 col-sm-12 mt-4">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
@@ -214,14 +215,153 @@
       <!-- Users Pills Container -->
     </div>
 
-    <div class="tab-pane fade" id="pills-contract" role="tabpanel" aria-labelledby="pills-contract-tab">
-      <h1>contrato</h1>
+    <!-- Contract Tab -->
+    <div class="tab-pane fade p-4" id="pills-contract" role="tabpanel" aria-labelledby="pills-contract-tab">
+      <span class="badge bg-primary">
+        <h4 class="m-0">
+          Contrato    
+        </h4> 
+      </span>
+      <!-- Contract Pills Tab -->
+      <div class="container-fluid col-lg-12 col-md-12 col-sm-12 mt-4">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button id="contract-list-tab" class="nav-link active" data-bs-toggle="tab" data-bs-target="#contract-list-container" type="button" role="tab" aria-controls="home" aria-selected="true">
+              Contratos
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button id="contract-register-tab" class="nav-link" data-bs-toggle="tab" data-bs-target="#contract-register-container" type="button" role="tab" aria-controls="profile" aria-selected="false">
+              Cadastrar
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button id="contract-edit-tab" class="nav-link" data-bs-toggle="tab" data-bs-target="#contract-edit-container" type="button" role="tab" aria-controls="contact" aria-selected="false">
+              Editar
+            </button>
+          </li>
+        </ul>
+      </div>
+      <!-- Contract Pills Tab -->
+
+      <!-- Contract Pills Container -->
+      <div class="tab-content d-flex justify-content-center py-4" id="myTabContent">
+        <!-- Users List Container -->
+        <div id="contract-list-container" class="container-fluid tab-pane fade show active" role="tabpanel" aria-labelledby="contract-list-tab">
+          <div class="container-fluid col-lg-12 col-sm-12 col-md-12 d-flex flex-column align-items-center">
+            <div class="col-lg-8 col-sm-8 col-sm-12">
+              <!-- <label style="position: absolute;">Pesquisar Usuários</label> -->
+              <div class="d-flex align-items-center justify-content-center gap-4 py-4">
+                <input type="text" id="user-input" placeholder="Digite o nome do contrato. Ex: John Dee" class="form-control"/>
+                <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2">
+                  <label class="d-none d-sm-block" id="user-search">
+                    Pesquisar
+                  </label>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+              <table id="contract-list" class="table" style="display: none;width: 100%"> 
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Data</th>
+                    <th>Valor</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- Users List Container -->
+
+        <!-- Contract Register Container -->
+        <div id="contract-register-container" class="container-fluid tab-pane fade" role="tabpanel" aria-labelledby="contract-register-tab">
+          <div class="container-fluid col-lg-12 col-sm-12 col-md-12 d-flex justify-content-center">
+            <div class="col-lg-4 col-md-4 col-sm-12 p-4 form-wrapper">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                  <div class="card-header d-flex align-items-center text-white" style="height: 80px; background-color: #6EB954;">
+                    <h2 class="m-0">
+                      Cadastrar Contrato
+                    </h2>
+                  </div>
+                  <div class="card-body p-4">
+                    <form onsubmit="submitForm(event)" class="d-flex flex-column gap-4 p-4">
+                      <div>
+                        <label for="form-login">Nome do Contrato</label>
+                        <input id="contract-name" class="form-control" />
+                      </div>
+                      <div>
+                        <div>
+                          <label for="contractDate">Data do Contrato</label>
+                          <input id="contractDate" class="form-control" type="date"/>
+                        </div>
+                      </div>
+                      <div>
+                        <label for="form-login">Valor do Contrato</label>
+                        <input id="contract-price" class="form-control" placeholder="Ex: 450,00" />
+                      </div>
+                      <div class="btn-group">
+                        <button class="btn btn-primary">Cadastrar</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Register Container -->
+
+        <!-- Edit Container -->
+        <!-- Modal -->
+        <div id="exampleModalCenter" class="modal fade" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+          </div>
+        </div>
+
+        <div id="contract-edit-container" class="container-fluid tab-pane fade" role="tabpanel" aria-labelledby="contract-edit-tab">
+          <div class="container-fluid col-lg-12 col-sm-12 col-md-12 d-flex justify-content-center">
+            <div class="col-lg-8 col-sm-8 col-sm-12">
+              <!-- <label style="position: absolute;">Pesquisar Usuários</label> -->
+              <div class="d-flex align-items-center justify-content-center gap-4 py-4">
+                <input type="text" id="contract-edit-input" placeholder="Digite o nome do contrato. Ex: John Dee" class="form-control"/>
+                <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2">
+                  <label class="d-none d-sm-block" id="contract-search">
+                    Pesquisar
+                  </label>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+              <table id="contract-edit-list" class="table" style="display: none;width: 100%"> 
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Data</th>
+                    <th>Valor</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- Contract Container -->
+
+      </div>
+      <!-- Contract Pills Container -->
     </div>
   
-    <div class="tab-pane fade" id="pills-historico" role="tabpanel" aria-labelledby="pills-historico-tab">
-      <h1>histórico</h1>
+    <div class="tab-pane fade p-4" id="pills-historico" role="tabpanel" aria-labelledby="pills-historico-tab">
+      <span class="badge bg-primary">
+        <h4 class="m-0">
+          Histórico    
+        </h4> 
+      </span>
     </div>
-    
+
   </div>
   
   <script src="../js/main.js"></script>    

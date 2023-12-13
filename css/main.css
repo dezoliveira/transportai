@@ -48,15 +48,18 @@
     font-size: 28px;
 }
 
-#pills-users .nav-link {
+#pills-users .nav-link,
+#pills-contract .nav-link {
     color: #495057;
 }
 
-#pills-users .nav-link:hover {
+#pills-users .nav-link:hover,
+#pills-contract .nav-link:hover {
     color: blueviolet;
 }
 
-#pills-users .nav-link.active {
+#pills-users .nav-link.active,
+#pills-contract .nav-link.active {
     color: blueviolet;
 }
 
