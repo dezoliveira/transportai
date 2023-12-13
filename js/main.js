@@ -13,19 +13,51 @@ const tabEditList = document.getElementById('users-edit-tab')
 //User List
 const datePeriod = document.getElementById('datePeriod')
 
-//Search Inputs
+//User Search Inputs
 const btnSearch = document.getElementById('btnSearch')
 const userList = document.getElementById('user-list')
 const userInput = document.getElementById('user-input')
 const userEditList = document.getElementById('user-edit-list')
 const userEditInput = document.getElementById('user-edit-input')
 
-//Form Inputs
+//User Form Inputs
 const registerName = document.getElementById('register-name')
 const registerMail = document.getElementById('register-mail')
 const registerPassword = document.getElementById('register-password')
 
 const btnEdit = document.getElementById('btn-edit')
+
+//Contracts
+const contractList = document.getElementById('contract-list')
+const contractInput = document.getElementById('contract-input')
+const contractEditList = document.getElementById('contract-edit-list')
+const contractEditInput = document.getElementById('contract-edit-input')
+
+const users = [
+  {
+    id: 1,
+    name: 'Andres Oliveira',
+    role: 'Admin',
+    password: '123456',
+    email: 'admin@gmail.com',
+  },
+  {
+    id: 2,
+    name: 'John Dee',
+    role: 'User',
+    password: '123456',
+    email: 'jd@gmail.com',
+  }
+]
+
+const contracts = [
+  {
+    id: 1,
+    name: 'Serviço 1',
+    date: '12/12/2023',
+    price: '500'
+  }
+]
 
 //on load
 window.onload = () => {
@@ -54,6 +86,39 @@ window.onload = () => {
           <td>${userName}</td>
           <td>${email}</td>
           <td>${role}</td>
+          <td class="text-center">
+            <i onclick="editForm(${id})" class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"></i>
+            <i onclick="deleteForm()" class="fa-solid fa-trash" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"></i>
+          </td>
+        </tr>
+      </tbody>
+    `
+  }
+
+  for (i in contracts) {
+    let id = contracts[i].id
+    let name = contracts[i].name
+    let date = contracts[i].date
+    let price = contracts[i].price
+
+    //contract list
+    contractList.innerHTML += `
+      <tbody>
+        <tr id="${id}">
+          <td>${name}</td>
+          <td>Iniado em: ${date}</td>
+          <td>${price}</td>
+        </tr>
+      </tbody>
+    `
+
+    //edit list
+    contractEditList.innerHTML += `
+      <tbody>
+        <tr id="${id}">
+          <td>${name}</td>
+          <td>Iniado em: ${date}</td>
+          <td>${price}</td>
           <td class="text-center">
             <i onclick="editForm(${id})" class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"></i>
             <i onclick="deleteForm()" class="fa-solid fa-trash" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"></i>
@@ -163,35 +228,6 @@ arrContainers.forEach((element, i) => {
   })
 })
 
-// tabUsers.addEventListener('click', () => {
-//   userList.style.display = 'none'
-//   userInput.innerText = ''
-
-//   userEditList.style.display = 'none'
-//   userEditInput.innerText = ''
-// })
-
-document.addEventListener('click', (e) => {
-  
-})
-
-const users = [
-  {
-    id: 1,
-    name: 'Andres Oliveira',
-    role: 'Admin',
-    password: '123456',
-    email: 'admin@gmail.com',
-  },
-  {
-    id: 2,
-    name: 'John Dee',
-    role: 'User',
-    password: '123456',
-    email: 'jd@gmail.com',
-  }
-]
-
 submitForm = (e) => {
   e.preventDefault()
   Swal.fire({
@@ -211,12 +247,13 @@ submitForm = (e) => {
 let startDate = document.getElementById('startDate')
 let endDate = document.getElementById('endDate')
 
+//Users Toggle Input
 userInput.addEventListener('input', (e) => {
   let inputUser = e.target.value
   console.log(inputUser.length)
   if (inputUser.length) {
     userList.style.display = 'block'
-  } else{
+  } else {
     userList.style.display = 'none'
   }
 })
@@ -231,6 +268,28 @@ userEditInput.addEventListener('input', (e) => {
   }
 })
 
+//Contract Toggle Input
+contractInput.addEventListener('input', (e) => {
+  let inputContract = e.target.value
+
+  if(inputContract.length) {
+    contractList.style.display = 'block'
+  } else {
+    contractList.style.display = 'none'
+  }
+})
+
+contractEditInput.addEventListener('input', (e) => {
+  let inputContract = e.target.value
+
+  if(inputContract.length) {
+    contractEditList.style.display = 'block'
+  } else {
+    contractEditList  .style.display = 'none'
+  }
+})
+
+//Dashboard Search
 btnSearch.addEventListener('click', () => {
   let startDateVal = startDate.value
   let endDateVal = endDate.value

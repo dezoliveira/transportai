@@ -68,7 +68,7 @@
     border-color: blueviolet;
 }
 
-table, tbody, td, tr, th, thead {
+table, tbody, thead, td, tr, th {
     width: 100%;
 }
 
