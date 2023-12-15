@@ -288,18 +288,42 @@
                   <div class="card-body p-4">
                     <form onsubmit="submitForm(event)" class="d-flex flex-column gap-4 p-4">
                       <div>
-                        <label for="form-login">Nome do Contrato</label>
+                        <label for="form-login">Cliente</label>
                         <input id="contract-name" class="form-control" />
                       </div>
                       <div>
-                        <div>
-                          <label for="contractDate">Data do Contrato</label>
-                          <input id="contractDate" class="form-control" type="date"/>
+                        <div class="dropdown">
+                          <label for="service">Tipo de Serviço:</label>
+                          <button class="btn btn-primary dropdown-toggle text-start" style="width:100%" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Ex: Frete
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Frete</a></li>
+                            <li><a class="dropdown-item" href="#">Entrega de Mercadorias</a></li>
+                            <li><a class="dropdown-item" href="#">Entrega de Veículos</a></li>
+                            <li><a class="dropdown-item" href="#">Entrega de Materiais</a></li>
+                          </ul>
                         </div>
                       </div>
                       <div>
-                        <label for="form-login">Valor do Contrato</label>
+                        <label for="form-login">Valor do Contrato:</label>
                         <input id="contract-price" class="form-control" placeholder="Ex: 450,00" />
+                      </div>
+                      <div>
+                        <div>
+                          <label for="contractStartDate">Data de Inicio:</label>
+                          <input id="contractStartDate" class="form-control" type="date"/>
+                        </div>
+                      </div>
+                      <div>
+                        <div>
+                          <label for="contractEndDate">Data de Término:</label>
+                          <input id="contractEndDate" class="form-control" type="date"/>
+                        </div>
+                      </div>
+                      <div>
+                        <input type="checkbox" checked />
+                        <label>Contrato Ativo</label>
                       </div>
                       <div class="btn-group">
                         <button class="btn btn-primary">Cadastrar</button>
@@ -371,7 +395,7 @@
             <div class="row d-flex align-items-center justify-content-center">
               <div class="dropdown">
                 <label for="period">Período:</label>
-                <button class="btn btn-secondary dropdown-toggle text-start" style="width:100%" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-primary dropdown-toggle text-start" style="width:100%" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   Ex: 7 Dias
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

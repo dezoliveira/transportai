@@ -53,9 +53,17 @@ const users = [
 const contracts = [
   {
     id: 1,
-    name: 'Serviço 1',
-    date: '12/12/2023',
-    price: '500'
+    name: 'Andres Oliveira',
+    services: [
+      'Frete', 
+      'Entrega de Mercadorias', 
+      'Entrega de Veículos',
+      'Entrega de Materiais'
+    ],
+    startDate: '12/12/2023',
+    endDate: '12/01/2024',
+    price: '500',
+    isActive: true
   }
 ]
 
@@ -224,25 +232,46 @@ const editContractForm = (id) => {
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form onsubmit="submitForm(event)" class="d-flex flex-column gap-4 p-4">
+        <form onsubmit="submitForm(event)" class="d-flex flex-column gap-4 p-4">
+          <div>
+            <label for="form-login">Cliente</label>
+            <input id="contract-name" class="form-control" value="${contract[0].name}"/>
+          </div>
+          <div>
+            <div class="dropdown">
+              <label for="service">Tipo de Serviço:</label>
+              <button class="btn btn-primary dropdown-toggle text-start" style="width:100%" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Ex: Frete
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">${contract[0].services[0]}</a></li>
+                <li><a class="dropdown-item" href="#">${contract[0].services[1]}</a></li>
+                <li><a class="dropdown-item" href="#">${contract[0].services[2]}</a></li>
+                <li><a class="dropdown-item" href="#">${contract[0].services[3]}</a></li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <label for="form-login">Valor do Contrato:</label>
+            <input id="contract-price" class="form-control" placeholder="Ex: 450,00" value="${contract[0].price}" />
+          </div>
+          <div>
             <div>
-              <label for="form-login">Nome do Contrato</label>
-              <input id="contract-name" class="form-control" value="${contract[0].name}" />
+              <label for="contractStartDate">Data de Inicio:</label>
+              <input id="contractStartDate" class="form-control" type="date" value="${contract[0].startDate}" />
             </div>
+          </div>
+          <div>
             <div>
-              <div>
-                <label for="contractDate">Data do Contrato</label>
-                <input id="contractDate" class="form-control" type="date" value="${contract[0].date}"/>
-              </div>
+              <label for="contractEndDate">Data de Término:</label>
+              <input id="contractEndDate" class="form-control" type="date" value="${contract[0].endDate}"/>
             </div>
-            <div>
-              <label for="form-login">Valor do Contrato</label>
-              <input id="contract-price" class="form-control" placeholder="Ex: 450,00" value="${contract[0].price}" />
-            </div>
-            <div class="btn-group">
-              <button class="btn btn-primary">Cadastrar</button>
-            </div>
-          </form>
+          </div>
+          <div>
+            <input type="checkbox" checked="${contract[0  ].isActive}" />
+            <label>Contrato Ativo</label>
+          </div>
+        </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
