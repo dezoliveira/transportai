@@ -106,7 +106,7 @@ window.onload = () => {
   for (i in contracts) {
     let id = contracts[i].id
     let name = contracts[i].name
-    let date = contracts[i].date
+    let date = contracts[i].startDate
     let price = contracts[i].price
 
     //contract list
@@ -114,7 +114,7 @@ window.onload = () => {
       <tbody>
         <tr id="${id}">
           <td>${name}</td>
-          <td>Iniado em: ${date}</td>
+          <td>Iniciado em: ${date}</td>
           <td>${price}</td>
         </tr>
       </tbody>
@@ -125,7 +125,7 @@ window.onload = () => {
       <tbody>
         <tr id="${id}">
           <td>${name}</td>
-          <td>Iniado em: ${date}</td>
+          <td>Iniciado em: ${date}</td>
           <td>${price}</td>
           <td class="text-center">
             <i onclick="editContractForm(${id})" class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#contractModal"></i>
