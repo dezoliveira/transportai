@@ -199,17 +199,17 @@
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
               </div>
+              <table id="user-edit-list" class="table" style="display: none"> 
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+              </table>
             </div>
-            <table id="user-edit-list" class="table" style="display: none"> 
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Role</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-            </table>
           </div>
         </div>
         <!-- Contract Container -->
@@ -218,7 +218,7 @@
     </div>
 
     <!-- Contract Tab -->
-    <div class="tab-pane fade p-4" id="pills-contract" role="tabpanel" aria-labelledby="pills-contract-tab">
+    <div class="tab-pane fade p-md-4 p-lg-4" id="pills-contract" role="tabpanel" aria-labelledby="pills-contract-tab">
       <span class="badge bg-primary">
         <h4 class="m-0">
           Contrato    
@@ -250,10 +250,10 @@
       <div class="tab-content d-flex justify-content-center py-4" id="myTabContent">
         <!-- Users List Container -->
         <div id="contract-list-container" class="container-fluid tab-pane fade show active" role="tabpanel" aria-labelledby="contract-list-tab">
-          <div class="container-fluid col-lg-12 col-sm-12 col-md-12 d-flex flex-column align-items-center">
+          <div class="container-fluid col-lg-8 col-md-8 col-sm-12 d-flex flex-column align-items-center">
             <div class="col-lg-8 col-sm-8 col-sm-12">
               <!-- <label style="position: absolute;">Pesquisar Usuários</label> -->
-              <div class="d-flex align-items-center justify-content-center gap-4 py-4">
+              <div class="d-flex align-items-center justify-content-center gap-3 py-4">
                 <input type="text" id="contract-input" placeholder="Digite o nome do contrato. Ex: John Dee" class="form-control"/>
                 <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2">
                   <label class="d-none d-sm-block" id="user-search">
@@ -262,16 +262,16 @@
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
               </div>
-              <table id="contract-list" class="table" style="display: none;width: 100%"> 
-                <thead>
-                  <tr>
-                    <th>Contrato</th>
-                    <th>Data do Contrato</th>
-                    <th>Valor</th>
-                  </tr>
-                </thead>
-              </table>
             </div>
+            <table id="contract-list" class="table" style="display: none;"> 
+              <thead>
+                <tr>
+                  <th>Contrato</th>
+                  <th>Data do Contrato</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+            </table>
           </div>
         </div>
         <!-- Users List Container -->
@@ -337,9 +337,9 @@
             </div>
           </div>
         </div>
-        <!-- Register Container -->
+        <!-- Contract Register Container -->
 
-        <!-- Edit Container -->
+        <!-- Contract Edit Container -->
         <!-- Modal -->
         <div id="contractModal" class="modal fade" tabindex="-1">
           <div class="modal-dialog">
@@ -349,7 +349,7 @@
         </div>
 
         <div id="contract-edit-container" class="container-fluid tab-pane fade" role="tabpanel" aria-labelledby="contract-edit-tab">
-          <div class="container-fluid col-lg-12 col-sm-12 col-md-12 d-flex justify-content-center">
+          <div class="container-fluid col-lg-8 col-sm-12 col-md-8 d-flex flex-column align-items-center">
             <div class="col-lg-8 col-sm-8 col-sm-12">
               <!-- <label style="position: absolute;">Pesquisar Usuários</label> -->
               <div class="d-flex align-items-center justify-content-center gap-4 py-4">
@@ -361,7 +361,7 @@
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
               </div>
-              <table id="contract-edit-list" class="table" style="display: none;"> 
+              <table id="contract-edit-list" class="table" style="display: none"> 
                 <thead>
                   <tr>
                     <th>Name</th>

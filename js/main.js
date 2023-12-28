@@ -379,7 +379,7 @@ contractEditInput.addEventListener('input', (e) => {
   if(inputContract.length) {
     contractEditList.style.display = 'block'
   } else {
-    contractEditList  .style.display = 'none'
+    contractEditList.style.display = 'none'
   }
 })
 
