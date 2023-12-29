@@ -344,7 +344,7 @@ let endDate = document.getElementById('endDate')
 //Users Toggle Input
 userInput.addEventListener('input', (e) => {
   let inputUser = e.target.value
-  console.log(inputUser.length)
+
   if (inputUser.length) {
     userList.style.display = 'block'
   } else {
@@ -366,7 +366,7 @@ userEditInput.addEventListener('input', (e) => {
 contractInput.addEventListener('input', (e) => {
   let inputContract = e.target.value
 
-  if(inputContract.length) {
+  if (inputContract.length) {
     contractList.style.display = 'block'
   } else {
     contractList.style.display = 'none'
